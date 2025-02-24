@@ -36,7 +36,7 @@ public class DDTests
 
     }
 
-    // for each iteration it is 
+    // for each iteration it is returning only username
     @Test(priority = 2 , dataProvider = "UserNames" , dataProviderClass = DataProviders.class)
     public void testDeleteUserByName(String userName)
     {
