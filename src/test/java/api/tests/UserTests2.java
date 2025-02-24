@@ -1,9 +1,9 @@
 package api.tests;
 
 import api.endpoints.UserEndPoints;
+import api.endpoints.UserEndPoints2;
 import api.payload.User;
 import com.github.javafaker.Faker;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.useRelaxedHTTPSValidation;
 
-public class UserTests {
+public class UserTests2 {
     // Faker is used For creating the fake/demo data
     Faker faker;
     User userPayload;
@@ -44,7 +44,7 @@ public class UserTests {
         logger.info("********** creating user *****************");
         useRelaxedHTTPSValidation();
 
-        Response response = UserEndPoints.createUser(userPayload);
+        Response response = UserEndPoints2.createUser(userPayload);
         response.then().log().all();
 
         // Check for the expected status code (201 for created)
@@ -60,7 +60,7 @@ public class UserTests {
     public void testGetUserByName() {
         logger.info("********** reading user info *****************");
         useRelaxedHTTPSValidation();
-        Response response = UserEndPoints.readUser(this.userPayload.getUserName());
+        Response response = UserEndPoints2.readUser(this.userPayload.getUserName());
         response.then().log().all();
         Assert.assertEquals(response.getStatusCode(), 200);
         logger.info("********** user info is displayed *****************");
@@ -78,14 +78,14 @@ public class UserTests {
         userPayload.setEmail(faker.internet().safeEmailAddress());
 
 
-        Response response = UserEndPoints.updateUser(this.userPayload.getUserName(),userPayload);
+        Response response = UserEndPoints2.updateUser(this.userPayload.getUserName(),userPayload);
         // this.userPayload.getUserName() : existing username
         response.then().log().all();
         Assert.assertEquals(response.getStatusCode(),200);
         logger.info("********** user updated *****************");
 
         //checking data after update
-        Response responseAfterUpdate = UserEndPoints.readUser(this.userPayload.getUserName());
+        Response responseAfterUpdate = UserEndPoints2.readUser(this.userPayload.getUserName());
         Assert.assertEquals(responseAfterUpdate.getStatusCode(),200);
 
 
@@ -95,7 +95,7 @@ public class UserTests {
     public void testDeleteUserByName()
     {
         logger.info("********** deleting user *****************");
-        Response response = UserEndPoints.deleteUser(this.userPayload.getUserName());
+        Response response = UserEndPoints2.deleteUser(this.userPayload.getUserName());
         Assert.assertEquals(response.getStatusCode(),200);
         logger.info("********** deleted user  *****************");
 
