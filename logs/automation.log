@@ -1,0 +1,6 @@
+2025-03-03 17:40:09 [main] INFO  api.tests.UserTests2 - ********** creating user *****************
+2025-03-03 17:40:15 [main] INFO  api.tests.UserTests2 - ********** user is created *****************
+2025-03-03 17:40:15 [main] INFO  api.tests.UserTests2 - ********** reading user info *****************
+2025-03-03 17:40:16 [main] INFO  api.tests.UserTests2 - ********** update user *****************
+2025-03-03 17:40:16 [main] INFO  api.tests.UserTests2 - ********** user updated *****************
+2025-03-03 17:40:17 [main] INFO  api.tests.UserTests2 - ********** deleting user *****************
